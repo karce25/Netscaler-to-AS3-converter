@@ -1,11 +1,11 @@
 # Define the path to the CSV file containing names
-$csvFilePath = "C:\Users\karce\OneDrive - F5, Inc\Documents\Consulting\FIS_combine\bdoc_ANY_new.csv"
+$csvFilePath = "report.csv"
 
 # Define the path to the source file
-$sourceFilePath = "C:\Users\karce\OneDrive - F5, Inc\Documents\Consulting\FIS_combine\bdoc.yml"
+$sourceFilePath = "report.yml"
 
 # Define the path to the output file
-$outputFolderPath = "C:\Users\karce\OneDrive - F5, Inc\Documents\Consulting\FIS_combine\bdoc_output_ANY_new_just_json"
+$outputFolderPath = "output_folder"
 
 # Read the CSV file
 $csvData = Import-Csv $csvFilePath

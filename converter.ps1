@@ -64,6 +64,7 @@ Get-ChildItem -Path $inputDirectory | ForEach-Object {
       foreach ($certEntry in $parsedObject.bindings.certs) {
           if ($certEntry.profileName) {     
              $certFileName = $certEntry.profileName
+             break
               #Write-Host "Cert name is $certFileName"
 
           }

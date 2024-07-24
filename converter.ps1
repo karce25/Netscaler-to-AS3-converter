@@ -134,13 +134,13 @@ Get-ChildItem -Path $inputDirectory | ForEach-Object {
           }
 
             $message = "The vs_${fullName} has the following policy $listenPolicy need to provide irule to the customer"
-            $message | Out-File -FilePath "C:\Users\karce\OneDrive - F5, Inc\Documents\Consulting\FIS_combine\lrtc_non_prod_ssl_july22\listenpolicies.txt" -Append
+            $message | Out-File -FilePath "listenpolicies.txt" -Append
         } 
         elseif ($key -eq "-backupVServer") {
           $backup_vserver=$parsedObject.opts[$key]
           Write-Host "The backup server is $backup_vserver"
           $message = "The vs_${fullName} has the following backup vserver $backup_vserver need to configure as a pool member with priority group of 5"
-          $message | Out-File -FilePath "C:\Users\karce\OneDrive - F5, Inc\Documents\Consulting\FIS_combine\lrtc_non_prod_ssl_july22\backup_servers.txt" -Append
+          $message | Out-File -FilePath "backup_servers.txt" -Append
       } 
           elseif ($key -eq "-svrTimeout") {
           #Write-Host "Server Timeout $($parsedObject.opts[$key])"
@@ -180,7 +180,7 @@ Get-ChildItem -Path $inputDirectory | ForEach-Object {
           #Constructing the message
           #$message = "The vs_${fullName} listen on port 80 client side and 443 server side, changing declaration"
           #Writing the message to the output
-          #$message | Out-File -FilePath "C:\Users\karce\OneDrive - F5, Inc\Documents\Consulting\FIS_combine\lrtc_non_prod_ssl_july22\severssl.csv" -Append
+          #$message | Out-File -FilePath "severssl.csv" -Append
 
          
       } else {
@@ -204,7 +204,7 @@ Get-ChildItem -Path $inputDirectory | ForEach-Object {
             #Constructing the message
             #$message = "The vs_${fullName} has XFF $cip and needs to be configured manually"
             #Writing the message to the output
-            #$message | Out-File -FilePath "C:\Users\karce\OneDrive - F5, Inc\Documents\Consulting\FIS_combine\test_batch\xff.txt" -Append
+            #$message | Out-File -FilePath "xff.txt" -Append
               }
               DISABLED { $cipValueAS3 =""                     
               }

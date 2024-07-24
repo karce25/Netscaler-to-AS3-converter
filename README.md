@@ -24,14 +24,13 @@ $outputFolderPath = "output_folder"
 ```
 
 3. The converter script takes as an input the JSON files from the Codefinder and gives us the AS3 files per application, the converter script assigns variables based on the YAML files provided by Flipper and then selects an AS3 template based on the virtual server protocol.
-   > [!NOTE]
-> Things that currently are not being handled by the script:
- > Custom  monitors under Netscaler services (Service-groups work correctly)
- > Listen policies: Currently, the scripts only create a txt file with the listen policy that needs to be created manually with an iRule.
- > Backup vservers: Currently the script only creates a txt file with the Virtual Servers that contain backup vservers and needs to handle that through priority groups.
- > Chain CA certs: Currently, the script creates the Chain CA cert statically for all SSL AS3 templates.
+**Things that currently are not being handled by the script:**
+ - _Custom  monitors under Netscaler services (Service-groups work correctly)_
+ - _Listen policies: Currently, the scripts only create a txt file with the listen policy that needs to be created manually with an iRule._
+ - _Backup vservers: Currently the script only creates a txt file with the Virtual Servers that contain backup vservers and needs to handle that through priority groups._
+ - _Chain CA certs: Currently, the script creates the Chain CA cert statically for all SSL AS3 templates._
   
-5. Once we have the AS3 JSON files from the converter script we run the monitor_insert script which needs a CSV file with 2 columns (Name and Monitors) the name column should match the name of the AS3 file, for example: VIP-name_as3_, the name of the monitor will be configured inside each file that matches the name column.
+5. Once we have the AS3 JSON files from the converter script we run the monitor_insert script which needs a CSV file with 2 columns (Name and Monitors) the name column should match the name of the AS3 file, for example: **VIP-name_as3_**, the name of the monitor will be configured inside each file that matches the name column.
 
 ```
 if ($pool -and $pool.class -eq 'Pool') {
@@ -83,7 +82,22 @@ Needs to be rewritten at the top:
 ## General flow
 ![AS3-Common](https://github.com/user-attachments/assets/b14223e7-038e-4d90-a8d4-ae390818c4bb)
 ## Description
-1. Once the AS3 declaration is successfully submitted to a BIG-IP lab we need to go inside /config/partitions
+1. Once the AS3 declaration is successfully submitted to a BIG-IP lab we need to go inside **/config/partitions/** and extract the bigip.conf from there and rename it in txt format
+2. With VSCODE find and replace the partition name with **/Common/** for example **/partition-name/path/vs-test-443 to /Common/path/vs-test-443**
+3. With VSCODE find and replace  **/Common/Shared** with **/Common/**
+4. Run the imperative.py script which uses regex expressions to remove all the paths from the configuration
+5. Finally merge the bigip.txt file to a new LAB VE to test if the configuration is successful (need to place bigip.txt into **/var/local/scf**)
+    Example:
+   ```
+   tmsh
+   load /sys config merge file bigip_new.txt verify
+   load /sys config merge file bigip_new.txt 
+   save /sys config
+
+   ```
+   > [!NOTE]
+   > https://my.f5.com/manage/s/article/K81271448
+   
 
 
 

@@ -1,5 +1,5 @@
 # Define the path to the directory containing the AS3 JSON files
-$as3FilesPath = "C:\Users\karce\OneDrive - F5, Inc\Documents\Consulting\FIS_combine\lrtc_non_prod_ssl_july22_monitor"
+$as3FilesPath = "monitor_output_folder"
 
 # Get the list of AS3 JSON files in the directory
 $as3Files = Get-ChildItem -Path $as3FilesPath -Filter "*as3_.json"

@@ -41,7 +41,7 @@ replacement_profiles_2= r"\1\2"
 updated_contents = re.sub(pattern_pool, replacement_pool, file_contents, flags=re.MULTILINE)
 
 # Replace all occurrences in the file contents for pools inside VS
-updated_contents = re.sub(pattern_pool_2, replacement_pool_2, file_contents, flags=re.MULTILINE)
+updated_contents = re.sub(pattern_pool_2, replacement_pool_2, updated_contents, flags=re.MULTILINE)
 
 # Replace all occurrences in the file contents for virtual servers
 updated_contents = re.sub(pattern_virtual, replacement_virtual, updated_contents, flags=re.MULTILINE)

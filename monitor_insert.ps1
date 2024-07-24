@@ -1,6 +1,6 @@
 # Define the path to the AS3.json files and the CSV file
-$as3FolderPath = "C:\Users\karce\OneDrive - F5, Inc\Documents\Consulting\FIS_monitor_search\lrtc_non_prod_ssl_july22_monitor"
-$csvFilePath = "C:\Users\karce\OneDrive - F5, Inc\Documents\Consulting\FIS_monitor_search\monitors_lrtc_non-prod_ssl_july22.csv"
+$as3FolderPath = "as3_output_converter_folder"
+$csvFilePath = "monitors_name.csv"
 
 # Read the list of names and monitors from the CSV file
 $csvEntries = Import-Csv -Path $csvFilePath

@@ -1,4 +1,4 @@
-$inputDirectory = "C:\Users\karce\OneDrive - F5, Inc\Documents\Consulting\FIS_combine\lrtc_non_prod_ssl_july22"
+$inputDirectory = "code_finder_output_folder"
 Function ConvertTo-JsonOrDefault {
   param(
       [Parameter(Mandatory = $true)][Object] $Object,

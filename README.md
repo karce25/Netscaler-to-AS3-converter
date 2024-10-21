@@ -9,6 +9,11 @@
 #### Flipper report
 ![flipper_report](https://github.com/user-attachments/assets/d463ca63-2fc3-4cdd-8a4f-837cda5e80b8)
 
+Note: The CSV file should have column names like the following example:
+
+![image](https://github.com/user-attachments/assets/22d973ab-ad10-4f79-9159-e66e72685754)
+
+
 2. The Codefinder PowerShell  uses the CSV file against the YAML report to give us one JSON file per application found on the CSV file.
 #### Codefinder inputs
 ```
